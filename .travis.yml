@@ -31,6 +31,7 @@ before_script:
 
   # Download and install Apache solr
   - cd /home
+  - pwd
   - wget http://wiki.gizra-labs.com/images/e/ee/Apache-solr-3.6.2.zip
   - unzip -o Apache-solr-3.6.2.zip
   - cd apache-solr-3.6.2/example/solr/conf
