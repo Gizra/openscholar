@@ -28,7 +28,16 @@ before_script:
   - phpenv rehash
   - bash scripts/setup
   - bash scripts/build
+
+  # Download and install Apache solr
+  - pwd
+  - wget http://wiki.gizra-labs.com/images/e/ee/Apache-solr-3.6.2.zip
+  - unzip -o Apache-solr-3.6.2.zip
+  - cd apache-solr-3.6.2/example/solr/conf
+  - yes | cp /var/www/openscholar/www/profiles/openscholar/modules/contrib/apachesolr/solr-conf/solr-3.x/* .
+
   # Install a multi-tanent, development site.
+  - pwd
   - cd www
   - mkdir -p /tmp/devel-mails
   - sudo chmod 777 /tmp -R
@@ -37,6 +46,12 @@ before_script:
   - drush vset purl_base_domain http://127.0.0.1
   - drush en os_migrate_demo -y
   - drush mi --all --user=1
+
+  # Index site using Apache solr
+  - drush en os_search_solr -y
+  - drush solr-mark-all
+  - drush solr-index
+
   # Copy Behat configuration file.
   - cd profiles/openscholar/behat
   - cp behat.local.yml.travis behat.local.yml
@@ -45,7 +60,7 @@ before_script:
   - sudo cat /var/log/apache2/error.log
 
 script:
-    - ./bin/behat --tags=~wip
+   # - ./bin/behat --tags=~wip
 
 after_script:
     - sudo cat /var/log/apache2/error.log
