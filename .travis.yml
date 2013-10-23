@@ -37,6 +37,7 @@ before_script:
   - cd apache-solr-3.6.2/example/solr/conf
   - yes | cp /home/travis/build/openscholar/openscholar/www/profiles/openscholar/modules/contrib/apachesolr/solr-conf/solr-3.x/* .
   - cd ../../
+  - sudo apt-get install gnome-terminal
   - gnome-terminal --window --title=solr -e "java -jar start.jar"
   - sleep 10
   - cd /home/travis/build/openscholar/openscholar
