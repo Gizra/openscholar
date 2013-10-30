@@ -67,7 +67,7 @@ before_script:
   - sudo cat /var/log/apache2/error.log
 
 script:
-   # - ./bin/behat --tags=~wip
+  - ./bin/behat --tags=~wip
 
 after_script:
     - sudo cat /var/log/apache2/error.log
