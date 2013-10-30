@@ -30,8 +30,6 @@ before_script:
   - bash scripts/build
 
   # Download and install Apache solr
-  - pwd
-  - ls
   - wget http://wiki.gizra-labs.com/images/e/ee/Apache-solr-3.6.2.zip
   - unzip -o Apache-solr-3.6.2.zip
   - cd apache-solr-3.6.2/example/solr/conf
@@ -41,10 +39,8 @@ before_script:
   - java -jar start.jar &
   - sleep 10
   - cd /home/travis/build/openscholar/openscholar
-  - ls
 
   # Install a multi-tanent, development site.
-  - pwd
   - cd www
   - mkdir -p /tmp/devel-mails
   - sudo chmod 777 /tmp -R
