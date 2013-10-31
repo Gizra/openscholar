@@ -765,6 +765,17 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
+   * @When /^I search for "([^"]*)"$/
+   */
+  public function iSearchFor($item) {
+    return array(
+      new Step\When('I visit "john"'),
+      new Step\When('I fill in "search_block_form" with "'. $item . '"'),
+      new Step\When('I press "Search"'),
+    );
+  }
+
+  /**
    * @Then /^I verify the "([^"]*)" term link redirect to the original page$/
    */
   public function iVerifyTheTermLinkRedirectToTheOriginalPage($term) {
