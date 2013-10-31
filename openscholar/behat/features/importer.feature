@@ -4,6 +4,7 @@ Feature: Testing the importer.
   Scenario Outline: Testing the csv importing for blog.
     Given I am logging in as "admin"
      When I visit <import-address>
+     When I display watchdog
       And I visit <address>
      Then I should see <title>
       And I should see <body>
