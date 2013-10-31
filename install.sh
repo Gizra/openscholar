@@ -14,20 +14,3 @@ drush en -y os_migrate_demo
 drush mi --all --user=1
 
 
-cd ~/Downloads
-wget http://wiki.gizra-labs.com/images/e/ee/Apache-solr-3.6.2.zip
-unzip -o Apache-solr-3.6.2.zip
-cd apache-solr-3.6.2/example/solr/conf
-yes | cp /var/www/openscholar/www/profiles/openscholar/modules/contrib/apachesolr/solr-conf/solr-3.x/* .
-cd ../../
-#gnome-terminal --window --title=solr -e "java -jar start.jar"
-java -jar start.jar &
-
-#sleep 10
-
-cd /var/www/openscholar/www
-drush en os_search_solr -y
-sleep 5
-drush solr-mark-all
-drush solr-index
-
