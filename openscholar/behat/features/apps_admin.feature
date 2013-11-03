@@ -24,9 +24,6 @@ Feature:
       | Reader        | Public |
       | Software      | Public |
 
-
-  Feature: Testing the importer.
-
   @api @me
   Scenario Outline: Testing the csv importing for blog.
     Given I am logging in as "admin"
