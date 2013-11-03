@@ -953,6 +953,16 @@ class FeatureContext extends DrupalContext {
   }
 
   /**
+   * @Given /^I click on "([^"]*)" under facet "([^"]*)"$/
+   */
+  public function iClickOnLinkInFacet($option, $facet) {
+    $page = $this->getSession()->getPage();
+    $element = $page->find('xpath', "//h2[contains(., '{$facet}')]/following-sibling::div//a[contains(., '{$option}')]");
+    //print_r($element);
+    $element->press();
+  }
+
+  /**
    * @Then /^I delete "([^"]*)" registration$/
    */
   public function iDeleteRegistration($arg1) {
