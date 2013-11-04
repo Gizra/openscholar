@@ -958,7 +958,6 @@ class FeatureContext extends DrupalContext {
   public function iClickOnLinkInFacet($option, $facet) {
     $page = $this->getSession()->getPage();
     $element = $page->find('xpath', "//h2[contains(., '{$facet}')]/following-sibling::div//a[contains(., '{$option}')]");
-    //print_r($element);
     $element->press();
   }
 
