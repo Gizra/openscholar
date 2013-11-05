@@ -1,6 +1,6 @@
 Feature: Testing the importer.
 
-  @api @wip
+  @api
   Scenario Outline: Testing the csv importing for blog.
     Given I am logging in as "admin"
      When I visit <import-address>
@@ -14,7 +14,7 @@ Feature: Testing the importer.
     | "john/os-importer-demo/news"    | "john/news"                               | "Testing import news"   | "Testing the import of news"    |
     | "john/os-importer-demo/event"   | "john/calendar?type=day&day=2013-10-17"   | "Testing importing"     | ""                              |
 
-  @api @wip
+  @api
   Scenario: Verify that the vocabularies and terms from the CSV created
   successfully.
     Given I visit "john/blog/blog-csv"
